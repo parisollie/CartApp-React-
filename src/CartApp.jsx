@@ -4,20 +4,24 @@ import { CartRoutes } from "./routes/CartRoutes";
 
 export const CartApp = () => {
 
-    //Vid 84, add carItems
-    //Vid 95, desestructuramos la logica que esta en el useItemsCart
+    /*
+      V-84,paso 3.0 add carItems
+      Paso 9.2, desestructuramos la lógica que esta en el useItemsCart
+    */
     const { cartItems, handlerAddProductCart, handlerDeleteProductCart } = useItemsCart();
 
-    //Vid 97, add el Navbar
     return (
         <>
+            {/**Paso 10.5,ponemos el Navbar */}
             <Navbar />
+            {/**My es margen vertical en y 4 */}
             <div className="container my-4">
-
+                {/**V-78,paso 1.1 */}
                 <h3>Cart App</h3>
                 <CartRoutes
+                    //Paso 3.1,le pasamos los items
                     cartItems={cartItems}
-                    //Vid 95
+                    //Paso 9.3, le pasamos las funciones que usamos
                     handlerAddProductCart={handlerAddProductCart}
                     handlerDeleteProductCart={handlerDeleteProductCart}
                 />

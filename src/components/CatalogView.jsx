@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../services/productService";
 import { ProductCardView } from "./ProductCardView";
 
-//Vid 86, le pasamos el handler
+//Paso 2.6,A este archivo primero le llama CartItem y despues se lo 
+// cambia a catologView
+//Paso 4.5, le pasamos el prop handler
 export const CatalogView = ({ handler }) => {
 
-    //Vid 82
+    //paso 2.2
     const [products, setProducts] = useState([]);
     //Vid 177
     const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +23,7 @@ export const CatalogView = ({ handler }) => {
         setIsLoading(false);
     }
 
+    //Paso 2.3
     useEffect(
         () => {
             //Vid 176, ponemos la funcion asincrona del use state ,para que guarde los productos
@@ -40,15 +43,15 @@ export const CatalogView = ({ handler }) => {
                     //Vid 82,es un arreglo, vamos a estar iterando por cada producto
                     products.map(prod => (
                         <div
-                            //Vid 78, maquetacion del html
+                            //Paso 1.3
                             className="col-4 my-2"
                             //Vid 82, el elemento padre que se repite le damos el kye con el id, para
                             //que sea unico.
                             key={prod.id}>
                             <ProductCardView
-                                //Vid 86, le pasamos el handler
+                                //V-86,paso 4.6 le pasamos el handler
                                 handler={handler}
-                                //Vid 85 
+                                //Paso 4.2, le pasamos el product id 
                                 id={prod.id}
                                 name={prod.name}
                                 description={prod.description}

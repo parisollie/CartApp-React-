@@ -1,3 +1,4 @@
+//V-80,paso 2.0, ponemos los datos
 export const products = [
     {
         id: 1,
