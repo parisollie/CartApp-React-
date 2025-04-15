@@ -9,28 +9,28 @@ export const CatalogView = ({ handler }) => {
 
     //paso 2.2
     const [products, setProducts] = useState([]);
-    //Vid 177
+    //V-177,paso 12.6
     const [isLoading, setIsLoading] = useState(true);
 
-    //Vid 176,obtenemos todos los productos.
+    //V-176,poaso 12.2 ,obtenemos todos los productos.
     const findAll = async () => {
 
-        //Vid 176, funcion para llamar los productos de la bd 
+        //Paso 12.3, funcion para llamar los productos de la BD
         const prods = await getProducts();
         //Vid 82,con setProducts , pasamos los productos
         setProducts(prods);
-        //Vid 177, ya termino de cargar 
+        //paso 12.7, ya termino de cargar 
         setIsLoading(false);
     }
 
     //Paso 2.3
     useEffect(
         () => {
-            //Vid 176, ponemos la funcion asincrona del use state ,para que guarde los productos
+            //paso 12.4, ponemos la función asíncrona del use state ,para que guarde los productos
             findAll();
         }, []);
 
-    //Vid 177 , (isLoading &&), si es tue esta cargando sino muestra los productos
+    //Paso 12.8 , (isLoading &&), si es tue esta cargando sino muestra los productos
     return (
         <>
             {
